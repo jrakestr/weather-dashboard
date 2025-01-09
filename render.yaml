@@ -1,9 +1,7 @@
 services:
   - type: web
     name: weather-dashboard
-    env: node
     runtime: node
-    nodeVersion: 18
     buildCommand: |
       cd client && npm install && npm run build
       cd ../server && npm install && npm run build
