@@ -2,17 +2,11 @@ services:
   - type: web
     name: weather-dashboard
     runtime: node
-    buildCommand: |
-      npm install
-      npm run build
-      mkdir -p server/client/dist
-      cp -r client/dist/* server/client/dist/
-    startCommand: npm start
+    buildCommand: npm install && cd client && npm run build
+    startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: OPENWEATHER_API_KEY
         sync: false
     plan: free
-    healthCheckPath: /
-    maxShutdownDelaySeconds: 60
