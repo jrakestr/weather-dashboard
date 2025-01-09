@@ -5,7 +5,10 @@ services:
     runtime: node
     nodeVersion: 18
     rootDir: ./server
-    buildCommand: npm install && npm run build
+    buildCommand: |
+      cd ../client && npm install && npm run build
+      mkdir -p client/dist && cp -r ../client/dist/* client/dist/
+      npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
