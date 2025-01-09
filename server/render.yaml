@@ -1,9 +1,7 @@
 services:
-  # Backend API service and Frontend static site combined into a single web service
   - type: web
     name: weather-dashboard
     env: node
-    rootDir: server
     buildCommand: npm install && npm run build
     startCommand: node dist/server.js
     envVars:
