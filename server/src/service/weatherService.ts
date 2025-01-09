@@ -40,24 +40,21 @@ class Weather {
 class WeatherService {
   private geocodingBaseURL: string;
   private weatherBaseURL: string;
-  private apiKey?: string;
+  private apiKey: string;
 
   constructor() {
     this.geocodingBaseURL = 'http://api.openweathermap.org/geo/1.0';
     this.weatherBaseURL = 'https://api.openweathermap.org/data/2.5';
-    this.apiKey = process.env.OPENWEATHER_API_KEY;
+    const apiKey = process.env.OPENWEATHER_API_KEY;
     
-    if (!this.apiKey) {
+    if (!apiKey) {
       throw new Error('OpenWeather API key not found in environment variables');
     }
+    this.apiKey = apiKey;
   }
 
   private async fetchLocationData(cityName: string): Promise<Coordinates> {
     try {
-      if (!this.apiKey) {
-        throw new Error('API key not found');
-      }
-
       const geocodingUrl = `${this.geocodingBaseURL}/direct?q=${encodeURIComponent(cityName)}&limit=1&appid=${this.apiKey}`;
       const response = await fetch(geocodingUrl);
       
@@ -93,10 +90,6 @@ class WeatherService {
 
   private async fetchWeatherData(coordinates: Coordinates) {
     try {
-      if (!this.apiKey) {
-        throw new Error('API key not found');
-      }
-
       const weatherUrl = `${this.weatherBaseURL}/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${this.apiKey}`;
       const response = await fetch(weatherUrl);
       
