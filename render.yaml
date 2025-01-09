@@ -3,11 +3,12 @@ services:
     name: weather-dashboard
     runtime: node
     buildCommand: |
-      cd client && npm install && npm run build
-      cd ../server && npm install && npm run build
-      mkdir -p server/client/dist
-      cp -r client/dist/* server/client/dist/
-    startCommand: cd server && npm start
+      cd /opt/render/project/src && \
+      cd client && npm install && npm run build && \
+      cd ../server && npm install && npm run build && \
+      mkdir -p /opt/render/project/src/server/client/dist && \
+      cp -r /opt/render/project/src/client/dist/* /opt/render/project/src/server/client/dist/
+    startCommand: cd /opt/render/project/src/server && npm start
     envVars:
       - key: NODE_ENV
         value: production
