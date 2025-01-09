@@ -4,10 +4,10 @@ services:
     runtime: node
     rootDir: /opt/render/project/src
     buildCommand: |
-      cd client && npm install && npm run build && \
-      cd ../server && npm install && npm run build && \
-      mkdir -p /opt/render/project/src/server/client/dist && \
-      cp -r /opt/render/project/src/client/dist/* /opt/render/project/src/server/client/dist/
+      cd client && npm install && npm run build && cd .. && \
+      cd server && npm install && npm run build && cd .. && \
+      mkdir -p server/client/dist && \
+      cp -r client/dist/* server/client/dist/
     startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV

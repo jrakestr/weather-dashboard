@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 3001;
 
 // Serve static files from the client build directory
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(process.cwd(), 'client/dist')));
 
 // Implement middleware for parsing JSON and urlencoded form data
 app.use(express.json());
