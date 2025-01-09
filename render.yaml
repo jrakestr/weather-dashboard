@@ -3,8 +3,9 @@ services:
   - type: web
     name: weather-dashboard-api
     env: node
-    buildCommand: cd server && npm install && npm run build
-    startCommand: cd server && npm start
+    rootDir: ./server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
     envVars:
       - key: OPENWEATHER_API_KEY
         sync: false
@@ -13,8 +14,9 @@ services:
   - type: web
     name: weather-dashboard-client
     env: static
-    buildCommand: cd client && npm install && npm run build
-    staticPublishPath: ./client/dist
+    rootDir: ./client
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
     routes:
       - type: rewrite
         source: /*
