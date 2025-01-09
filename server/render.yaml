@@ -2,8 +2,10 @@ services:
   - type: web
     name: weather-dashboard
     env: node
+    runtime: node
+    nodeVersion: 18
     buildCommand: npm install && npm run build
-    startCommand: node dist/server.js
+    startCommand: npm start
     envVars:
       - key: OPENWEATHER_API_KEY
         sync: false
