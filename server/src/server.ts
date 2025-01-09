@@ -14,7 +14,11 @@ const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 3001;
 
 // Serve static files from the client build directory
-app.use(express.static(path.join(__dirname, '../../client/dist')));
+const clientPath = process.env.NODE_ENV === 'production' 
+  ? path.join(__dirname, '../client/dist')
+  : path.join(__dirname, '../../client/dist');
+
+app.use(express.static(clientPath));
 
 // Implement middleware for parsing JSON and urlencoded form data
 app.use(express.json());
@@ -25,7 +29,7 @@ app.use(routes);
 
 // Serve index.html for any unknown routes (client-side routing)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+  res.sendFile(path.join(clientPath, 'index.html'));
 });
 
 // Start the server on the port
