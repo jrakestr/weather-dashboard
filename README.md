@@ -4,40 +4,44 @@ A modern weather dashboard application built with TypeScript, Express, and the O
 
 ## Features
 
-- **Current Weather**: View current temperature, wind speed, humidity, and weather conditions
-- **5-Day Forecast**: Get a detailed forecast for the next 5 days
-- **Search History**: Keep track of your previously searched cities
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+* **Current Weather**: View current temperature, wind speed, humidity, and weather conditions
+* **5-Day Forecast**: Get a detailed forecast for the next 5 days
+* **Search History**: Keep track of your previously searched cities
+* **Responsive Design**: Works seamlessly on desktop and mobile devices
 
 ## Tech Stack
 
 ### Frontend
-- TypeScript
-- Vite
-- Modern CSS with JASS framework
-- Fetch API for network requests
+
+* TypeScript
+* Vite
+* Modern CSS with JASS framework
+* Fetch API for network requests
 
 ### Backend
-- Node.js
-- Express
-- TypeScript
-- OpenWeather API integration
+
+* Node.js
+* Express
+* TypeScript
+* OpenWeather API integration
 
 ## Prerequisites
 
-- Node.js (v14 or higher)
-- npm (v6 or higher)
-- OpenWeather API key (get one at [OpenWeather](https://openweathermap.org/api))
+* Node.js (v14 or higher)
+* npm (v6 or higher)
+* OpenWeather API key (get one at [OpenWeather](https://openweathermap.org/api))
 
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd weather-dashboard
 ```
 
-2. Install dependencies for both client and server:
+1. Install dependencies for both client and server:
+
 ```bash
 # Install server dependencies
 cd server
@@ -48,7 +52,8 @@ cd ../client
 npm install
 ```
 
-3. Set up environment variables:
+1. Set up environment variables:
+
 ```bash
 # In the server directory, create a .env file
 cd ../server
@@ -58,16 +63,18 @@ echo "OPENWEATHER_API_KEY=your_api_key_here" > .env
 ## Running the Application
 
 1. Start the server (from the server directory):
+
 ```bash
 npm run dev
 ```
 
-2. In a new terminal, start the client (from the client directory):
+1. In a new terminal, start the client (from the client directory):
+
 ```bash
 npm run dev
 ```
 
-3. Open your browser and navigate to `http://localhost:3000`
+1. Open your browser and navigate to `http://localhost:3000`
 
 ## Usage
 
@@ -80,13 +87,13 @@ npm run dev
 
 ## API Endpoints
 
-- `POST /api/weather` - Get weather data for a city
-- `GET /api/weather/history` - Get search history
-- `DELETE /api/weather/history/:id` - Remove a city from search history
+* `POST /api/weather` - Get weather data for a city
+* `GET /api/weather/history` - Get search history
+* `DELETE /api/weather/history/:id` - Remove a city from search history
 
 ## Project Structure
 
-```
+```typescript
 weather-dashboard/
 ├── client/                 # Frontend application
 │   ├── src/
@@ -99,7 +106,6 @@ weather-dashboard/
 │   │   ├── routes/        # API routes
 │   │   ├── service/       # Business logic
 │   │   └── server.ts      # Server configuration
-│   └── package.json
 └── README.md
 ```
 
@@ -117,6 +123,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- [OpenWeather API](https://openweathermap.org/api) for providing weather data
-- [JASS CSS](https://github.com/necolas/normalize.css/) for the CSS framework
-- Icons provided by OpenWeather
+* [OpenWeather API](https://openweathermap.org/api) for providing weather data
+* [JASS CSS](https://github.com/necolas/normalize.css/) for the CSS framework
+* Icons provided by OpenWeather
