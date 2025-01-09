@@ -4,12 +4,12 @@ services:
     env: node
     runtime: node
     nodeVersion: 18
-    rootDir: ./server
     buildCommand: |
-      cd ../client && npm install && npm run build
-      mkdir -p client/dist && cp -r ../client/dist/* client/dist/
-      npm install && npm run build
-    startCommand: npm start
+      cd client && npm install && npm run build
+      cd ../server && npm install && npm run build
+      mkdir -p server/client/dist
+      cp -r client/dist/* server/client/dist/
+    startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV
         value: production
